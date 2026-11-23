@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151413">
+  <meta name="description" content="Explore the projects and experience of Zafar Abdullaev, a UTS IT student in Sydney pursuing B2B software sales.">
+  <title>Zafar Abdullaev · Desktop Portfolio</title>
+  <link rel="icon" href="assets/icon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script src="desktop.js" defer></script>
+  <script src="apps.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <button class="brand" data-open="start"><span class="brand-mark" aria-hidden="true">Z</span> Zafar Abdullaev</button>
+    <span class="top-context">Personal desktop</span>
+    <button class="search-launch" id="search-launch" aria-haspopup="dialog"><span aria-hidden="true">⌕</span> Search <kbd>Ctrl / ⌘ K</kbd></button>
+  </header>
+  <main class="desktop" aria-label="Portfolio desktop">
+    <div class="desktop-label" aria-hidden="true">ZAFAR / DESKTOP</div>
+    <nav class="folders" aria-label="Desktop folders and apps">
+      <button data-open="university"><i class="folder-icon" aria-hidden="true"></i>University</button>
+      <button data-open="projects"><i class="folder-icon" aria-hidden="true"></i>Projects</button>
+      <button data-open="hackathons"><i class="folder-icon" aria-hidden="true"></i>Hackathons</button>
+      <button data-open="work"><i class="folder-icon" aria-hidden="true"></i>Work Experience</button>
+      <button data-open="contact"><i class="folder-icon" aria-hidden="true"></i>CV &amp; Contact</button>
+      <button data-open="offclock"><i class="folder-icon" aria-hidden="true"></i>Off the Clock</button>
+      <button data-open="music"><i class="app-icon" aria-hidden="true">♫</i>Music</button>
+      <button data-open="settings"><i class="app-icon" aria-hidden="true">⚙</i>Settings</button>
+    </nav>
+    <div id="window-layer"></div>
+    <p class="desktop-location" aria-hidden="true">SYDNEY, AUSTRALIA <span>◆</span></p>
+  </main>
+  <footer class="taskbar" aria-label="Taskbar">
+    <button id="start-button" aria-expanded="false" aria-controls="start-menu"><span aria-hidden="true">▦</span> Start</button>
+    <button class="dock-icon" data-open="music" aria-label="Open Music">♫</button>
+    <div id="tasks" aria-label="Open windows"></div>
+    <button class="dock-icon" id="show-desktop" aria-label="Show desktop" aria-pressed="false" title="Show desktop">▱</button>
+    <div class="clock"><span>Sydney</span> <time id="clock"></time></div>
+  </footer>
+  <nav id="start-menu" aria-label="Start shortcuts" hidden>
+    <button data-open="start">START HERE.txt</button>
+    <button data-open="projects">Projects</button>
+    <button data-open="contact">CV &amp; Contact</button>
+    <button data-open="settings">Settings</button>
+    <button data-open="about">About this website</button>
+    <button data-reset>Reset window positions</button>
+  </nav>
+
+  <dialog id="search-dialog" aria-labelledby="search-title">
+    <header class="overlay-bar"><h2 id="search-title">Search desktop</h2><button data-dismiss aria-label="Close search">×</button></header>
+    <div class="overlay-body">
+      <label for="query">Search projects, technologies, interests and contact</label>
+      <input id="query" type="search" autocomplete="off" placeholder="Try UniLoop or volleyball" autofocus>
+      <p class="shortcut"><kbd>Ctrl / ⌘ K</kbd> open · <kbd>↑</kbd> <kbd>↓</kbd> navigate · <kbd>Enter</kbd> open · <kbd>Esc</kbd> close</p>
+      <p id="search-status" role="status"></p>
+      <div id="search-results"></div>
+    </div>
+  </dialog>
+
+  <dialog id="viewer" aria-labelledby="viewer-title">
+    <header class="overlay-bar"><h2 id="viewer-title">Photo viewer</h2><button data-dismiss aria-label="Close photo viewer" autofocus>×</button></header>
+    <figure><img id="full-photo" alt=""><figcaption id="photo-caption" aria-live="polite"></figcaption></figure>
+    <div class="viewer-controls">
+      <button data-photo-step="-1">← Previous</button>
+      <span id="photo-count"></span>
+      <button data-photo-step="1">Next →</button>
+    </div>
+  </dialog>
+
+  <noscript><p>Enable JavaScript to explore the desktop. <a href="assets/documents/Zafar_Abdullaev_SDR_CV.pdf">Open my CV</a> or <a href="https://www.linkedin.com/in/zafar-abdullaev-a89333407/" target="_blank" rel="noopener noreferrer">visit my LinkedIn</a>.</p></noscript>
+
+  <template id="content-start">
+    <div class="intro">
+      <div class="intro-meta"><span class="terminal-icon" aria-hidden="true">&gt;_</span><span>UTS IT STUDENT <b>·</b> SYDNEY, AU</span></div>
+      <h1>Hi, I’m <span>Zafar<br class="intro-break"> Abdullaev.</span></h1>
+      <p class="intro-lead">Good with people. Curious about tech.</p>
+      <p>I study IT at UTS and work in customer service at KFC. I’m looking to start a career in sales development, particularly in B2B software sales.</p>
+      <div class="actions intro-actions">
+        <button class="primary" data-open="projects">Explore Projects</button>
+        <button data-open="contact">View CV</button>
+        <button data-explore>Explore Desktop</button>
+      </div>
+    </div>
+  </template>
+
+  <template id="content-university">
+    <h1>University</h1>
+    <p class="lead" data-topic="uts">I’m studying for a Bachelor of Information Technology at the University of Technology Sydney (UTS), with an expected graduation in 2030.</p>
+    <div class="cards">
+      <article><p class="tag">DATA &amp; PREDICTION</p><h2>Online Shopper Prediction</h2><p>Our group used a random forest to predict which browsing sessions would end in a purchase.</p><button data-open="projects" data-anchor="shopper">Read project details</button></article>
+      <article><p class="tag">JAVA · JAVAFX</p><h2>JavaFX Coursework</h2><p>Writing interfaces with event handlers, observable properties, and model–view–controller.</p><button data-open="projects" data-anchor="javafx">Read coursework details</button></article>
+      <article><p class="tag">HTML · CSS</p><h2>Web Systems Website</h2><p>A responsive website for Web Systems (31268).</p><button data-open="projects" data-anchor="web-systems">Read project details</button></article>
+    </div>
+  </template>
+
+  <template id="content-projects">
+    <h1>Projects</h1><p class="lead">Prototypes, coursework, and independent projects.</p>
+    <nav class="project-nav" aria-label="Jump to a project">
+      <button data-open="projects" data-anchor="uniloop">UniLoop</button>
+      <button data-open="projects" data-anchor="plain-law">Plain Law</button>
+      <button data-open="projects" data-anchor="shopper">Shopper Prediction</button>
+      <button data-open="projects" data-anchor="javafx">JavaFX</button>
+      <button data-open="projects" data-anchor="web-systems">Web Systems</button>
+      <button data-open="projects" data-anchor="gym-finder">Gym Finder</button>
+      <button data-open="projects" data-anchor="financial-assistance">Financial Assistance</button>
+    </nav>
+    <div class="cards">
+      <article class="featured" data-topic="uniloop">
+        <p class="tag">HACKATHON PROTOTYPE · NODE.JS · JAVASCRIPT</p><h2>UniLoop</h2>
+        <p>University students need a way to join clubs and book events, while club organisers need to keep track of member pricing and RSVPs. UniLoop puts those tasks in one place.</p>
+        <p>The prototype applies member pricing automatically and gives club organisers a dashboard for memberships and RSVPs. Payments are simulated.</p>
+        <button data-open="hackathons" data-anchor="competition">See the competition photos</button>
+      </article>
+      <article class="featured" data-topic="plain-law">
+        <p class="tag">NEXT.JS · TYPESCRIPT · CLAUDE API</p><h2>Plain Law</h2>
+        <p>I built Plain Law with assistance from Claude to help people understand dense legal documents. It explains documents in plain English and highlights dates and amounts a reader might otherwise miss.</p>
+        <p>Readers can request source checking when they want to verify a point in the explanation against the document.</p>
+      </article>
+      <article data-topic="shopper">
+        <p class="tag">UTS GROUP PROJECT · RANDOM FOREST</p><h2>Online Shopper Prediction</h2>
+        <p>Our group explored whether session data could help an online retailer identify visitors likely to buy. The random forest baseline had about 84% accuracy while missing every buyer.</p>
+        <p>Buyer recall measures how many actual buyers the model identifies. A model can score well on overall accuracy by favouring the more common non-buyer class, yet still miss every session the retailer wants to identify.</p>
+      </article>
+      <article data-topic="javafx">
+        <p class="tag">UTS COURSEWORK · JAVA · JAVAFX</p><h2>JavaFX Coursework</h2>
+        <p>I worked on Java desktop interfaces that respond to user actions and stay in sync as their state changes. Event handlers respond to input, observable properties allow views to react to changes, and model–view–controller keeps data, presentation, and interaction organised.</p>
+      </article>
+      <article data-topic="web-systems">
+        <p class="tag">UTS WEB SYSTEMS (31268) · HTML · CSS</p><h2>Web Systems Website</h2>
+        <p>I designed and built a responsive website from scratch for my UTS Web Systems coursework. I used HTML to structure the content and CSS to adapt the layout to different screen sizes, so readers could use the site on desktop and mobile.</p>
+      </article>
+      <article data-topic="gym-finder">
+        <p class="tag">PERSONAL PROJECT · ORACLE APEX</p><h2>Gym Finder Web Application</h2>
+        <p>I built a web application for people looking to find and compare gyms across several criteria, with a simple, consistent interface. I presented it to a live audience, answered questions about the design, and used the feedback to refine the app.</p>
+      </article>
+      <article data-topic="financial-assistance">
+        <p class="tag">SCHOOL PROJECT · FIGMA · RESEARCH REPORT</p><h2>Financial Assistance Website</h2>
+        <p>I researched and designed a Figma prototype to help Australians navigate financial decisions. I focused on user needs, navigation, and task completion, then documented my research and design decisions in a report for stakeholders.</p>
+      </article>
+    </div>
+  </template>
+
+  <template id="content-hackathons">
+    <h1>Hackathons</h1>
+    <section data-topic="competition"><h2>Macquarie AI Society competition</h2>
+      <p>UniLoop was part of my Macquarie AI Society competition experience. The project explored how university club members and organisers could manage memberships and event bookings together.</p>
+      <button class="primary" data-open="projects" data-anchor="uniloop">Open UniLoop</button>
+      <div class="photo-grid">
+        <figure><button data-photo aria-label="View photo of the team seated in the lecture theatre"><img src="assets/photos/IMG_4807.JPG" alt="Team members seated around a desk in a lecture theatre" loading="lazy"></button><figcaption>With the team in the lecture theatre.</figcaption></figure>
+        <figure><button data-photo aria-label="View photo of the team gathered around a table"><img src="assets/photos/IMG_4852.JPG" alt="Four team members around a table with laptops and snacks" loading="lazy"></button><figcaption>The team gathered around a table at the competition.</figcaption></figure>
+      </div>
+    </section>
+  </template>
+
+  <template id="content-work">
+    <h1>Work Experience</h1>
+    <article class="featured" data-topic="kfc">
+      <p class="tag">CUSTOMER SERVICE TEAM MEMBER</p><h2>KFC · Hurstville Westfield</h2>
+      <p>On busy shifts I listen to what customers need, help them choose an order, and suggest add-ons when they fit. When there’s a complaint, I check what went wrong and help resolve it while keeping the customer informed.</p>
+      <p>I want to bring those habits to sales development in B2B software. Asking clear questions helps me understand what someone needs, and my IT studies help me explain how a product could fit their work.</p>
+    </article>
+  </template>
+
+  <template id="content-contact">
+    <h1>CV &amp; Contact</h1>
+    <section data-topic="cv"><h2>Sales development CV</h2>
+      <p>My SDR CV covers customer service at KFC, technical projects, my UTS IT studies, and my AWS Certified Cloud Practitioner certification.</p>
+      <div class="actions">
+        <a class="button primary" href="assets/documents/Zafar_Abdullaev_SDR_CV.pdf" download>Download CV ↓</a>
+        <a class="button" href="assets/documents/Zafar_Abdullaev_SDR_CV.pdf" target="_blank" rel="noopener noreferrer">Open CV in a new tab</a>
+      </div>
+    </section>
+    <section data-topic="linkedin"><h2>Contact</h2><p>Based in Sydney. You can reach me on LinkedIn, and my CV includes my contact details.</p>
+      <a class="button" href="https://www.linkedin.com/in/zafar-abdullaev-a89333407/" target="_blank" rel="noopener noreferrer">LinkedIn <span class="sr-only">(opens in a new tab)</span></a>
+    </section>
+    <object class="cv-preview" data="assets/documents/Zafar_Abdullaev_SDR_CV.pdf" type="application/pdf" aria-label="Zafar Abdullaev’s SDR CV" tabindex="-1">
+      <p>Your browser’s PDF viewer is unavailable. <a href="assets/documents/Zafar_Abdullaev_SDR_CV.pdf" target="_blank" rel="noopener noreferrer">Open the CV in a new tab</a>.</p>
+    </object>
+  </template>
+
+  <template id="content-offclock">
+    <h1>Off the Clock</h1>
+    <div class="sports-grid">
+      <section data-topic="volleyball"><h2>Volleyball</h2>
+        <figure><button data-photo aria-label="View the volleyball photo"><img src="assets/photos/volleyball.png" alt="Player in the air with one hand raised toward the ball on an indoor volleyball court" loading="lazy"></button><figcaption>Going up for the ball on an indoor court.</figcaption></figure>
+      </section>
+      <section data-topic="basketball"><h2>Basketball</h2><p>Another sport I enjoy away from the screen.</p></section>
+    </div>
+    <section data-topic="graduation"><h2>High school graduation</h2>
+      <div class="photo-grid">
+        <figure><button data-photo aria-label="View the graduation group photo"><img src="assets/photos/IMG_8161.JPG" alt="Friends in formal clothes posing for a group photo outdoors" loading="lazy"></button><figcaption>Our graduation group photo.</figcaption></figure>
+        <figure><button data-photo aria-label="View the sunglasses photo"><img src="assets/photos/IMG_8218.JPG" alt="Three friends in suits and sunglasses pointing at each other outdoors" loading="lazy"></button><figcaption>Three suits, three pairs of shades, and a Spider-Man pointing pose.</figcaption></figure>
+        <figure><button data-photo aria-label="View the dance floor photo"><img src="assets/photos/IMG_8180%20(1).JPG" alt="Two friends lean toward each other with arms raised on the dance floor" loading="lazy"></button><figcaption>A fusion pose on the dance floor.</figcaption></figure>
+      </div>
+    </section>
+  </template>
+
+  <template id="content-music">
+    <h1>Music</h1>
+    <div class="music-display"><span data-equalizer aria-hidden="true">▂ ▅ ▃ ▆</span><strong data-track>No track selected</strong><small data-track-count></small></div>
+    <p data-music-status role="status">Choose audio files to build a playlist.</p>
+    <div class="actions">
+      <button data-previous disabled>← Previous</button><button class="primary" data-play disabled>Play</button><button data-next disabled>Next →</button>
+    </div>
+    <label class="slider">Progress <span data-track-time>0:00 / 0:00</span><input data-progress type="range" value="0" min="0" max="1" step="0.1" disabled></label>
+    <label class="slider">Volume <input data-volume type="range" value="0.75" min="0" max="1" step="0.01"></label>
+    <div class="actions"><button data-mute aria-pressed="false">Mute</button><button data-pick>Choose audio files</button><input data-files type="file" accept="audio/*,.mp3,.wav,.ogg,.m4a,.aac,.flac,.opus,.webm" multiple hidden></div>
+    <p class="muted">Selected tracks stay on this device and play in this tab.</p>
+  </template>
+
+  <template id="content-settings">
+    <h1>Settings</h1>
+    <fieldset><legend>Wallpaper</legend><div class="appearance">
+      <label><input type="radio" name="wallpaper" value="ridge"> Ember Ridge</label>
+      <label><input type="radio" name="wallpaper" value="night"> Night Grid</label>
+      <label><input type="radio" name="wallpaper" value="dunes"> Dusk Dunes</label>
+    </div></fieldset>
+    <fieldset><legend>Accent colour</legend><div class="appearance">
+      <label><input type="radio" name="accent" value="ember"> Ember</label>
+      <label><input type="radio" name="accent" value="sage"> Sage</label>
+      <label><input type="radio" name="accent" value="blue"> Slate blue</label>
+    </div></fieldset>
+    <button data-reset>Reset window positions</button>
+    <p class="muted" data-settings-status role="status"></p>
+  </template>
+
+  <template id="content-about">
+    <h1>About this website</h1>
+    <p>I built my portfolio as a desktop you can explore. It uses HTML templates for the folders, CSS for the interface, and vanilla JavaScript to manage windows, search the portfolio, view photos, and play local music.</p>
+    <p>The wallpapers were drawn for the site. Pixelify Sans is bundled under the SIL Open Font License.</p>
+  </template>
+</body>
+</html>
